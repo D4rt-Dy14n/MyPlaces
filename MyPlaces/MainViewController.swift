@@ -10,9 +10,13 @@ import UIKit
 class MainViewController: UITableViewController {
     
     let restaurantNames = [
-                            "Burger King", "McDonalds", "Dve palochki", "Pizza Hut",
-                            "Carl's Junior", "Marchelli's", "Tokyo City"
+                            "Burger Heroes", "Kitchen", "Bonsai", "Дастархан",
+                            "Индокитай", "X.O", "Балкан Гриль", "Sherlock Holmes",
+                            "Speak Easy", "Morris Pub", "Вкусные истории",
+                            "Классик", "Love&Life", "Шок", "Бочка"
                             ]
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +33,9 @@ class MainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        cell.textLabel?.text = restaurantNames[indexPath.row]
+        let restaurant = restaurantNames[indexPath.row]
+        cell.textLabel?.text = restaurant
+        cell.imageView?.image = UIImage(named: restaurant)
 
         return cell
     }
