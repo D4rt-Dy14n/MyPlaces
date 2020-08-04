@@ -36,8 +36,16 @@ class MainViewController: UITableViewController {
         let restaurant = restaurantNames[indexPath.row]
         cell.textLabel?.text = restaurant
         cell.imageView?.image = UIImage(named: restaurant)
-
+        cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
+        cell.imageView?.clipsToBounds = true
+        
         return cell
+    }
+    
+    //MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
     
     // MARK: - Navigation
