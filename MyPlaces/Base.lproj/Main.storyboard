@@ -237,17 +237,19 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Place" id="XLp-SU-gK9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6Ri-VY-dUx">
-                            <connections>
-                                <segue destination="ZwX-zh-soc" kind="unwind" unwindAction="cancelAction:" id="Ulo-b0-NDe"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6Ri-VY-dUx"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="G7f-sw-pwb"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="placeImage" destination="hdp-gx-z5S" id="gSg-xV-NlZ"/>
+                        <outlet property="placeLocation" destination="F9W-o3-JPI" id="MEN-z2-8pv"/>
+                        <outlet property="placeName" destination="5Ua-Mh-a8B" id="YY9-6T-CO6"/>
+                        <outlet property="placeType" destination="JBS-6m-pda" id="6pZ-dE-3dc"/>
+                        <outlet property="saveButton" destination="G7f-sw-pwb" id="RqY-LZ-Noo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HF0-Yk-h52" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ZwX-zh-soc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2156.25" y="47.535211267605632"/>
         </scene>

@@ -32,7 +32,7 @@ class MainViewController: UITableViewController {
         cell.nameLabel?.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
-        cell.imageOfPlace?.image = UIImage(named: place.image)
+        cell.imageOfPlace?.image = UIImage(named: place.restaurantImage!)
         cell.imageOfPlace?.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace?.clipsToBounds = true
         
@@ -45,6 +45,6 @@ class MainViewController: UITableViewController {
 
     //}
 
-    @IBAction func cancelAction(_ segue: UIStoryboardSegue) {}
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {}
     
 }
