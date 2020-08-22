@@ -9,7 +9,8 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
 
-    var newPlace: Place?
+    var newPlace = Place()
+    var imageIsChanged = false
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -21,6 +22,10 @@ class NewPlaceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        DispatchQueue.main.async {
+            self.newPlace.savePlaces()
+        }
+        
         tableView.tableFooterView = UIView()
     
         saveButton.isEnabled = false
@@ -63,9 +68,21 @@ class NewPlaceViewController: UITableViewController {
     }
     
     func saveNewPlace() {
-        newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, image: placeImage.image, restaurantImage: nil)
+        
+        var image: UIImage?
+        
+        if imageIsChanged {
+            image = placeImage.image
+        } else {
+            image = #imageLiteral(resourceName: "imagePlaceholder")
+        }
+        
+//        newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, image: image, restaurantImage: nil)
     }
     
+    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
 }
 
 //MARK: - Text Field Delegate
@@ -108,6 +125,9 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
         placeImage.image = info[.editedImage] as? UIImage
         placeImage.contentMode = .scaleAspectFill
         placeImage.clipsToBounds = true
+        
+        imageIsChanged = true
+        
         dismiss(animated: true)
     }
     

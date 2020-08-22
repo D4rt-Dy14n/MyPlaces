@@ -237,8 +237,16 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Place" id="XLp-SU-gK9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6Ri-VY-dUx"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="G7f-sw-pwb"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6Ri-VY-dUx">
+                            <connections>
+                                <action selector="cancelAction:" destination="6M7-yy-U0z" id="QnO-Rh-1tS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="G7f-sw-pwb">
+                            <connections>
+                                <segue destination="RBX-Ba-kSj" kind="unwind" unwindAction="unwindSegue:" id="CVj-mu-SBY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -250,6 +258,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HF0-Yk-h52" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="RBX-Ba-kSj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2156.25" y="47.535211267605632"/>
         </scene>
