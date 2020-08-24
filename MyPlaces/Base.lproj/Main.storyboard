@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eRu-YF-g3a">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
@@ -53,7 +53,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjh-e2-24I">
                                                             <rect key="frame" x="0.0" y="0.0" width="288" height="27.5"/>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="21"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -88,7 +88,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0P-OV-dRu">
                                                             <rect key="frame" x="0.0" y="0.0" width="288" height="29.5"/>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="21"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -123,7 +123,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDL-w2-GR4">
                                                             <rect key="frame" x="0.0" y="0.0" width="288" height="29.5"/>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="21"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -157,11 +157,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Place" largeTitleDisplayMode="always" id="XLp-SU-gK9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6Ri-VY-dUx">
+                            <color key="tintColor" red="0.2274509804" green="0.90196078430000004" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelAction:" destination="6M7-yy-U0z" id="QnO-Rh-1tS"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="G7f-sw-pwb">
+                            <color key="tintColor" red="0.2274509804" green="0.90196078430000004" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="RBX-Ba-kSj" kind="unwind" unwindAction="unwindSegue:" id="CVj-mu-SBY"/>
                             </connections>
@@ -190,7 +192,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="38q-qx-9TC">
-                                <rect key="frame" x="0.0" y="82" width="320" height="486"/>
+                                <rect key="frame" x="0.0" y="76" width="320" height="492"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -256,41 +258,59 @@
                                     <outlet property="delegate" destination="W7X-y2-KeX" id="Cw6-o5-dIh"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y6b-eI-gPa">
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y6b-eI-gPa">
                                 <rect key="frame" x="0.0" y="44" width="320" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Z0s-Yq-n4m"/>
+                                    <constraint firstAttribute="height" constant="30" id="5LN-H0-eg0"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
+                                    <segment title="Date"/>
                                     <segment title="Name"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="W7X-y2-KeX" eventType="valueChanged" id="tTI-AL-hmF"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="31k-Uf-TRI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Y6b-eI-gPa" firstAttribute="trailing" secondItem="31k-Uf-TRI" secondAttribute="trailing" id="3sV-eg-4kq"/>
+                            <constraint firstItem="38q-qx-9TC" firstAttribute="top" secondItem="Y6b-eI-gPa" secondAttribute="bottom" priority="999" constant="1" id="M0T-wc-6La"/>
                             <constraint firstItem="Y6b-eI-gPa" firstAttribute="top" secondItem="31k-Uf-TRI" secondAttribute="top" id="ado-IA-Odd"/>
                             <constraint firstItem="Y6b-eI-gPa" firstAttribute="leading" secondItem="31k-Uf-TRI" secondAttribute="leading" id="alO-cq-F6O"/>
-                            <constraint firstItem="38q-qx-9TC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Y6b-eI-gPa" secondAttribute="bottom" id="r2R-EZ-WXd"/>
+                            <constraint firstItem="Y6b-eI-gPa" firstAttribute="height" secondItem="0hs-LN-b21" secondAttribute="height" multiplier="0.05" id="jMr-AS-li3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jMr-AS-li3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="vbx-Jz-b7k">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="API-O8-09s"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="API-O8-09s">
+                            <color key="tintColor" red="0.2274509804" green="0.90196078430000004" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="reversedSorting:" destination="W7X-y2-KeX" id="Qvh-kT-fcP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="n25-vf-M4b">
+                            <color key="tintColor" red="0.22745098039215686" green="0.90196078431372551" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="ZXO-Mm-Ojh" kind="presentation" id="tcP-2V-KeX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reverseSortingButton" destination="API-O8-09s" id="uiZ-3l-3uc"/>
+                        <outlet property="segmentedControl" destination="Y6b-eI-gPa" id="vPc-Og-f17"/>
                         <outlet property="tableView" destination="38q-qx-9TC" id="1L0-CI-y5u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdy-Df-dF5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352.5" y="47.535211267605632"/>
+            <point key="canvasLocation" x="350.625" y="46.478873239436624"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="34r-Yz-bZE">
