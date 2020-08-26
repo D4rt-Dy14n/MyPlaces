@@ -104,6 +104,7 @@ private func setupEditScreen() {
         placeName.text = currentPlace?.name
         placeLocation.text = currentPlace?.location
         placeType.text = currentPlace?.type
+        tableView.separatorColor = #colorLiteral(red: 0.2274509804, green: 0.9019607843, blue: 0.7921568627, alpha: 1)
     }
 }
 
@@ -111,6 +112,7 @@ private func setupNavBar() {
     navigationItem.leftBarButtonItem = nil
     if let topItem = navigationController?.navigationBar.topItem {
         topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        topItem.backBarButtonItem?.tintColor = #colorLiteral(red: 0.2274509804, green: 0.9019607843, blue: 0.7921568627, alpha: 1)
     }
     title = currentPlace?.name
     saveButton.isEnabled = true

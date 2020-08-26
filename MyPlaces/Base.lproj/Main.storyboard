@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eRu-YF-g3a">
-    <device id="retina4_0" orientation="portrait" appearance="dark"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
@@ -258,7 +258,7 @@
                                     <outlet property="delegate" destination="W7X-y2-KeX" id="Cw6-o5-dIh"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y6b-eI-gPa">
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y6b-eI-gPa">
                                 <rect key="frame" x="0.0" y="44" width="320" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -267,6 +267,7 @@
                                 <segments>
                                     <segment title="Date"/>
                                     <segment title="Name"/>
+                                    <segment title="Type"/>
                                 </segments>
                                 <connections>
                                     <action selector="sortSelection:" destination="W7X-y2-KeX" eventType="valueChanged" id="tTI-AL-hmF"/>
@@ -296,7 +297,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="n25-vf-M4b">
-                            <color key="tintColor" red="0.22745098039215686" green="0.90196078431372551" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.22745098039215686" green="0.90196078431372551" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="ZXO-Mm-Ojh" kind="presentation" id="tcP-2V-KeX"/>
                             </connections>
