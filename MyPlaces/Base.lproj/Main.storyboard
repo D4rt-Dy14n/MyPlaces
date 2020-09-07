@@ -40,7 +40,7 @@
                                                     </constraints>
                                                     <state key="normal" image="map"/>
                                                     <connections>
-                                                        <segue destination="1aQ-vj-Muh" kind="presentation" id="zOp-PO-Ci4"/>
+                                                        <segue destination="1aQ-vj-Muh" kind="presentation" identifier="showMap" id="zOp-PO-Ci4"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="1245" y="47.535211267605632"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="Ewd-RC-DJg">
             <objects>
-                <viewController id="1aQ-vj-Muh" sceneMemberID="viewController">
+                <viewController id="1aQ-vj-Muh" customClass="MapViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Boy-Cm-EHT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,6 +237,9 @@
                                     <constraint firstAttribute="width" constant="30" id="jPI-hd-DWM"/>
                                 </constraints>
                                 <state key="normal" image="camcel"/>
+                                <connections>
+                                    <action selector="closeVC" destination="1aQ-vj-Muh" eventType="touchUpInside" id="ytQ-0g-0KO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5fr-sf-RGT"/>
@@ -250,6 +253,9 @@
                             <constraint firstItem="PG3-Gh-VdV" firstAttribute="leading" secondItem="5fr-sf-RGT" secondAttribute="leading" id="pCD-3t-Gsi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="MapView" destination="PG3-Gh-VdV" id="xJq-e7-ocp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1V-Qm-GvV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
