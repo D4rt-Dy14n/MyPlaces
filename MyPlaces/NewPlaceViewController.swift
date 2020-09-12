@@ -69,13 +69,20 @@ class NewPlaceViewController: UITableViewController {
     //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "showMap" { return }
         
-        let mapVC = segue.destination as! MapViewController
-        mapVC.place.name = placeName.text!
-        mapVC.place.location = placeLocation.text
-        mapVC.place.type = placeType.text
-        mapVC.place.imageData = placeImage.image?.pngData()
+        guard
+            let identifier = segue.identifier,
+            let mapVC = segue.destination as? MapViewController
+        else { return }
+        
+        mapVC.incomeSegueID = identifier
+        
+        if identifier == "showPlace" {
+            mapVC.place.name = placeName.text!
+            mapVC.place.location = placeLocation.text
+            mapVC.place.type = placeType.text
+            mapVC.place.imageData = placeImage.image?.pngData()
+        }
     }
     
     func savePlace() {
@@ -89,7 +96,7 @@ class NewPlaceViewController: UITableViewController {
                              type: placeType.text,
                              imageData: imageData,
                              rating: Double(ratingControl.rating)
-                            )
+        )
         
         if currentPlace != nil {
             try! realm.write {
@@ -103,39 +110,39 @@ class NewPlaceViewController: UITableViewController {
             StorageManager.saveObject(newPlace)
         }
     }
-
-private func setupEditScreen() {
     
-    if currentPlace != nil {
+    private func setupEditScreen() {
         
-        setupNavBar()
-        imageIsChanged = true
-        
-        guard let data = currentPlace?.imageData!, let image = UIImage(data: data) else { return }
-        placeImage.image = image
-        placeImage.contentMode = .scaleAspectFill
-        placeName.text = currentPlace?.name
-        placeLocation.text = currentPlace?.location
-        placeType.text = currentPlace?.type
-        ratingControl.rating = Int(currentPlace.rating)
-        
-        tableView.separatorColor = #colorLiteral(red: 0.2274509804, green: 0.9019607843, blue: 0.7921568627, alpha: 1)
+        if currentPlace != nil {
+            
+            setupNavBar()
+            imageIsChanged = true
+            
+            guard let data = currentPlace?.imageData!, let image = UIImage(data: data) else { return }
+            placeImage.image = image
+            placeImage.contentMode = .scaleAspectFill
+            placeName.text = currentPlace?.name
+            placeLocation.text = currentPlace?.location
+            placeType.text = currentPlace?.type
+            ratingControl.rating = Int(currentPlace.rating)
+            
+            tableView.separatorColor = #colorLiteral(red: 0.2274509804, green: 0.9019607843, blue: 0.7921568627, alpha: 1)
+        }
     }
-}
-
-private func setupNavBar() {
-    navigationItem.leftBarButtonItem = nil
-    if let topItem = navigationController?.navigationBar.topItem {
-        topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        topItem.backBarButtonItem?.tintColor = #colorLiteral(red: 0.2274509804, green: 0.9019607843, blue: 0.7921568627, alpha: 1)
+    
+    private func setupNavBar() {
+        navigationItem.leftBarButtonItem = nil
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            topItem.backBarButtonItem?.tintColor = #colorLiteral(red: 0.2274509804, green: 0.9019607843, blue: 0.7921568627, alpha: 1)
+        }
+        title = currentPlace?.name
+        saveButton.isEnabled = true
     }
-    title = currentPlace?.name
-    saveButton.isEnabled = true
-}
-
-@IBAction func cancelAction(_ sender: UIBarButtonItem) {
-    dismiss(animated: true)
-}
+    
+    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
 }
 
 //MARK: - Text Field Delegate
