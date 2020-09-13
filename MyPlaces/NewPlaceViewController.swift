@@ -55,6 +55,7 @@ class NewPlaceViewController: UITableViewController {
             photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            
             actionSheet.addAction(camera)
             actionSheet.addAction(photo)
             actionSheet.addAction(cancel)
@@ -76,6 +77,7 @@ class NewPlaceViewController: UITableViewController {
         else { return }
         
         mapVC.incomeSegueID = identifier
+        mapVC.mapViewControllerDelegate = self
         
         if identifier == "showPlace" {
             mapVC.place.name = placeName.text!
@@ -88,7 +90,6 @@ class NewPlaceViewController: UITableViewController {
     func savePlace() {
         
         let image = imageIsChanged ? placeImage.image : #imageLiteral(resourceName: "imagePlaceholder")
-        
         let imageData = image?.pngData()
         
         let newPlace = Place(name: placeName.text!,
@@ -118,7 +119,10 @@ class NewPlaceViewController: UITableViewController {
             setupNavBar()
             imageIsChanged = true
             
-            guard let data = currentPlace?.imageData!, let image = UIImage(data: data) else { return }
+            guard let data = currentPlace?.imageData!,
+                  let image = UIImage(data: data)
+            else { return }
+            
             placeImage.image = image
             placeImage.contentMode = .scaleAspectFill
             placeName.text = currentPlace?.name
@@ -131,11 +135,12 @@ class NewPlaceViewController: UITableViewController {
     }
     
     private func setupNavBar() {
-        navigationItem.leftBarButtonItem = nil
+        
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             topItem.backBarButtonItem?.tintColor = #colorLiteral(red: 0.2274509804, green: 0.9019607843, blue: 0.7921568627, alpha: 1)
         }
+        navigationItem.leftBarButtonItem = nil
         title = currentPlace?.name
         saveButton.isEnabled = true
     }
@@ -191,5 +196,11 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
         
         dismiss(animated: true)
     }
+}
+
+extension NewPlaceViewController: MapViewControllerDelegate {
     
+    func getAddress(_ address: String?) {
+            placeLocation.text = address
+    }
 }

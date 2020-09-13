@@ -41,7 +41,7 @@
                                                     </constraints>
                                                     <state key="normal" image="map"/>
                                                     <connections>
-                                                        <segue destination="1aQ-vj-Muh" kind="presentation" identifier="showPlace" id="zOp-PO-Ci4"/>
+                                                        <segue destination="1aQ-vj-Muh" kind="presentation" identifier="showPlace" modalTransitionStyle="flipHorizontal" id="zOp-PO-Ci4"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -129,7 +129,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="centerViewInUserLocation" destination="1aQ-vj-Muh" eventType="touchUpInside" id="btW-dO-LTl"/>
-                                                        <segue destination="1aQ-vj-Muh" kind="presentation" identifier="getAddress" id="RNJ-tf-zIb"/>
+                                                        <segue destination="1aQ-vj-Muh" kind="presentation" identifier="getAddress" modalTransitionStyle="coverVertical" id="RNJ-tf-zIb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -287,8 +287,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="R3r-p6-l26">
-                                <rect key="frame" x="20" y="75" width="374" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="128" y="75" width="158.5" height="29"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPt-uW-x8q">
@@ -298,7 +299,18 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="doneButtonTapped:" destination="1aQ-vj-Muh" eventType="touchUpInside" id="rxr-ck-Np5"/>
+                                    <action selector="doneButtonPressed:" destination="1aQ-vj-Muh" eventType="touchUpInside" id="oB3-qP-OqP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="40" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvD-Lv-RzD">
+                                <rect key="frame" x="187" y="752" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="hEA-EE-lam"/>
+                                    <constraint firstAttribute="height" constant="40" id="t42-fC-2mz"/>
+                                </constraints>
+                                <state key="normal" image="GetDirection"/>
+                                <connections>
+                                    <action selector="getDirectionPressed" destination="1aQ-vj-Muh" eventType="touchUpInside" id="VT2-XS-iIp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -306,7 +318,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tPt-uW-x8q" firstAttribute="centerX" secondItem="Boy-Cm-EHT" secondAttribute="centerX" id="0qg-93-mTX"/>
+                            <constraint firstItem="5fr-sf-RGT" firstAttribute="bottom" secondItem="NvD-Lv-RzD" secondAttribute="bottom" constant="16" id="1iC-XE-Bnh"/>
+                            <constraint firstItem="R3r-p6-l26" firstAttribute="centerX" secondItem="Boy-Cm-EHT" secondAttribute="centerX" id="4Qp-Pe-21W"/>
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="trailing" secondItem="bpr-Ir-QF5" secondAttribute="trailing" constant="16" id="7Ap-lN-1bx"/>
+                            <constraint firstItem="NvD-Lv-RzD" firstAttribute="centerX" secondItem="Boy-Cm-EHT" secondAttribute="centerX" id="JRg-zg-4w0"/>
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="bottom" secondItem="h7E-7K-EZC" secondAttribute="bottom" constant="16" id="K2x-NL-imn"/>
                             <constraint firstItem="R3r-p6-l26" firstAttribute="top" secondItem="Boy-Cm-EHT" secondAttribute="top" constant="75" id="RF3-Hm-AJp"/>
                             <constraint firstItem="PG3-Gh-VdV" firstAttribute="trailing" secondItem="5fr-sf-RGT" secondAttribute="trailing" id="WNy-ja-oZH"/>
@@ -316,15 +331,14 @@
                             <constraint firstItem="bpr-Ir-QF5" firstAttribute="top" secondItem="5fr-sf-RGT" secondAttribute="top" constant="16" id="naL-hj-N9c"/>
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="trailing" secondItem="h7E-7K-EZC" secondAttribute="trailing" constant="16" id="nmv-2T-fQ2"/>
                             <constraint firstItem="PG3-Gh-VdV" firstAttribute="leading" secondItem="5fr-sf-RGT" secondAttribute="leading" id="pCD-3t-Gsi"/>
-                            <constraint firstItem="R3r-p6-l26" firstAttribute="leading" secondItem="5fr-sf-RGT" secondAttribute="leading" constant="20" id="pqq-zH-r47"/>
                             <constraint firstItem="yFf-u3-X1o" firstAttribute="centerX" secondItem="Boy-Cm-EHT" secondAttribute="centerX" id="wVL-ta-q32"/>
                             <constraint firstItem="yFf-u3-X1o" firstAttribute="centerY" secondItem="PG3-Gh-VdV" secondAttribute="centerY" constant="-20" id="wXN-XF-dlp"/>
-                            <constraint firstItem="5fr-sf-RGT" firstAttribute="trailing" secondItem="R3r-p6-l26" secondAttribute="trailing" constant="20" id="xh6-Dh-Gjf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="R3r-p6-l26" id="yhx-PA-i12"/>
                         <outlet property="doneButton" destination="tPt-uW-x8q" id="f3E-dT-hg0"/>
+                        <outlet property="getDirectionButton" destination="NvD-Lv-RzD" id="a8J-gY-1UA"/>
                         <outlet property="mapPinImage" destination="yFf-u3-X1o" id="sK0-gm-G5H"/>
                         <outlet property="mapView" destination="PG3-Gh-VdV" id="xJq-e7-ocp"/>
                     </connections>
@@ -528,6 +542,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="GetDirection" width="25" height="25"/>
         <image name="Photo" width="195" height="196"/>
         <image name="cancel" width="64" height="64"/>
         <image name="emptyStar" width="255" height="256"/>
@@ -538,6 +553,9 @@
         <image name="map" width="50" height="50"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
