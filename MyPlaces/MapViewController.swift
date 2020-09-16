@@ -24,6 +24,7 @@ class MapViewController: UIViewController {
     var incomeSegueID = ""
     var placeCoordinate: CLLocationCoordinate2D?
     var directionsArray: [MKDirections] = []
+    var transportType: MKDirectionsTransportType = .any
     var previousLocation: CLLocation? {
         didSet {
             startTrackingUserLocation()
@@ -35,11 +36,16 @@ class MapViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var getDirectionButton: UIButton!
-
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var transportButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addressLabel.text = ""
+        distanceLabel.text = ""
+        timeLabel.text = ""
         mapView.delegate = self
         mapView.isRotateEnabled = false
         setupMapView()
@@ -61,6 +67,11 @@ class MapViewController: UIViewController {
         showUserLocation()
     }
     
+    @IBAction func transportButtonPressed() {
+        changeTransportType()
+    }
+    
+    
     @IBAction func closeVC() {
         dismiss(animated: true)
     }
@@ -68,6 +79,7 @@ class MapViewController: UIViewController {
     private func setupMapView() {
         
         getDirectionButton.isHidden = true
+        transportButton.isHidden = true
         
         if incomeSegueID == "showPlace" {
             setupPlaceMark()
@@ -75,6 +87,7 @@ class MapViewController: UIViewController {
             addressLabel.isHidden = true
             doneButton.isHidden = true
             getDirectionButton.isHidden = false
+            transportButton.isHidden = false
         }
     }
     
@@ -219,8 +232,8 @@ class MapViewController: UIViewController {
                 let distance = String(format: "%.1f", route.distance / 1000)
                 let expectedTravelTime = route.expectedTravelTime / 60
                 
-                print("Distance to place: \(distance) km.")
-                print("Expected travel time: \(expectedTravelTime) minutes.")
+                self.distanceLabel.text = "Distance: \(distance) km"
+                self.timeLabel.text = "ETA: \(Int(expectedTravelTime.rounded())) minutes"
             }
         }
         
@@ -235,7 +248,7 @@ class MapViewController: UIViewController {
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: startingLocation)
         request.destination = MKMapItem(placemark: destination)
-        request.transportType = .automobile
+        request.transportType = transportType
         request.requestsAlternateRoutes = false
         
         return request
@@ -247,6 +260,25 @@ class MapViewController: UIViewController {
         let longitude = mapView.centerCoordinate.longitude
         
         return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    private func changeTransportType() {
+        let alert = UIAlertController(title: "", message: "Choose your transport", preferredStyle: .actionSheet)
+        let autoAction = UIAlertAction(title: "Auto", style: .default) { (_) in
+            self.transportType = .automobile
+        }
+        let transitAction = UIAlertAction(title: "Transit", style: .default) { (_) in
+            self.transportType = .transit
+        }
+        let walkingAction = UIAlertAction(title: "By walk", style: .default) { (_) in
+            self.transportType = .walking
+        }
+        
+        alert.addAction(autoAction)
+        alert.addAction(transitAction)
+        alert.addAction(walkingAction)
+        
+        present(alert, animated: true)
     }
     
     private func showAlert(title: String, message: String) {

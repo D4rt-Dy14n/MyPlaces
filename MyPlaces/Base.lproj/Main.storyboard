@@ -286,7 +286,7 @@
                                     <constraint firstAttribute="width" constant="40" id="Qpo-bv-XjC"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="R3r-p6-l26">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="R3r-p6-l26">
                                 <rect key="frame" x="128" y="75" width="158.5" height="29"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="24"/>
@@ -313,6 +313,37 @@
                                     <action selector="getDirectionPressed" destination="1aQ-vj-Muh" eventType="touchUpInside" id="VT2-XS-iIp"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Vbf-X5-xWe">
+                                <rect key="frame" x="16" y="75" width="382" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3e9-3h-0A6">
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="29"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-4w-YeP">
+                                        <rect key="frame" x="192" y="0.0" width="190" height="29"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="40" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWd-iE-r9C">
+                                <rect key="frame" x="16" y="752" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="E6V-2A-VVX"/>
+                                    <constraint firstAttribute="height" constant="40" id="TVt-uC-QTD"/>
+                                </constraints>
+                                <color key="tintColor" red="0.2274509804" green="0.90196078430000004" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="car" catalog="system">
+                                    <color key="titleColor" red="0.2274509804" green="0.90196078430000004" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="transportButtonPressed" destination="1aQ-vj-Muh" eventType="touchUpInside" id="8eS-Ht-Lgl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5fr-sf-RGT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -321,13 +352,18 @@
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="bottom" secondItem="NvD-Lv-RzD" secondAttribute="bottom" constant="16" id="1iC-XE-Bnh"/>
                             <constraint firstItem="R3r-p6-l26" firstAttribute="centerX" secondItem="Boy-Cm-EHT" secondAttribute="centerX" id="4Qp-Pe-21W"/>
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="trailing" secondItem="bpr-Ir-QF5" secondAttribute="trailing" constant="16" id="7Ap-lN-1bx"/>
+                            <constraint firstItem="Vbf-X5-xWe" firstAttribute="top" secondItem="Boy-Cm-EHT" secondAttribute="top" constant="75" id="7Ml-Fs-fKg"/>
+                            <constraint firstItem="5fr-sf-RGT" firstAttribute="trailing" secondItem="Vbf-X5-xWe" secondAttribute="trailing" constant="16" id="83U-gX-O01"/>
+                            <constraint firstItem="5fr-sf-RGT" firstAttribute="bottom" secondItem="YWd-iE-r9C" secondAttribute="bottom" constant="16" id="DfS-Fu-Wh3"/>
                             <constraint firstItem="NvD-Lv-RzD" firstAttribute="centerX" secondItem="Boy-Cm-EHT" secondAttribute="centerX" id="JRg-zg-4w0"/>
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="bottom" secondItem="h7E-7K-EZC" secondAttribute="bottom" constant="16" id="K2x-NL-imn"/>
+                            <constraint firstItem="YWd-iE-r9C" firstAttribute="leading" secondItem="5fr-sf-RGT" secondAttribute="leading" constant="16" id="MZA-Tv-X8y"/>
                             <constraint firstItem="R3r-p6-l26" firstAttribute="top" secondItem="Boy-Cm-EHT" secondAttribute="top" constant="75" id="RF3-Hm-AJp"/>
                             <constraint firstItem="PG3-Gh-VdV" firstAttribute="trailing" secondItem="5fr-sf-RGT" secondAttribute="trailing" id="WNy-ja-oZH"/>
                             <constraint firstItem="PG3-Gh-VdV" firstAttribute="bottom" secondItem="5fr-sf-RGT" secondAttribute="bottom" id="a5u-Dz-N5y"/>
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="bottom" secondItem="tPt-uW-x8q" secondAttribute="bottom" constant="16" id="eTW-QZ-ToS"/>
                             <constraint firstItem="PG3-Gh-VdV" firstAttribute="top" secondItem="5fr-sf-RGT" secondAttribute="top" id="ebf-mV-YBj"/>
+                            <constraint firstItem="Vbf-X5-xWe" firstAttribute="leading" secondItem="5fr-sf-RGT" secondAttribute="leading" constant="16" id="gqE-y6-ZYb"/>
                             <constraint firstItem="bpr-Ir-QF5" firstAttribute="top" secondItem="5fr-sf-RGT" secondAttribute="top" constant="16" id="naL-hj-N9c"/>
                             <constraint firstItem="5fr-sf-RGT" firstAttribute="trailing" secondItem="h7E-7K-EZC" secondAttribute="trailing" constant="16" id="nmv-2T-fQ2"/>
                             <constraint firstItem="PG3-Gh-VdV" firstAttribute="leading" secondItem="5fr-sf-RGT" secondAttribute="leading" id="pCD-3t-Gsi"/>
@@ -337,10 +373,13 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="R3r-p6-l26" id="yhx-PA-i12"/>
+                        <outlet property="distanceLabel" destination="3e9-3h-0A6" id="HEj-iF-YRX"/>
                         <outlet property="doneButton" destination="tPt-uW-x8q" id="f3E-dT-hg0"/>
                         <outlet property="getDirectionButton" destination="NvD-Lv-RzD" id="a8J-gY-1UA"/>
                         <outlet property="mapPinImage" destination="yFf-u3-X1o" id="sK0-gm-G5H"/>
                         <outlet property="mapView" destination="PG3-Gh-VdV" id="xJq-e7-ocp"/>
+                        <outlet property="timeLabel" destination="aWt-4w-YeP" id="0Jb-wY-B6Y"/>
+                        <outlet property="transportButton" destination="YWd-iE-r9C" id="jyr-Tk-jwA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1V-Qm-GvV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -545,6 +584,7 @@
         <image name="GetDirection" width="25" height="25"/>
         <image name="Photo" width="195" height="196"/>
         <image name="cancel" width="64" height="64"/>
+        <image name="car" catalog="system" width="128" height="93"/>
         <image name="emptyStar" width="255" height="256"/>
         <image name="filledStar" width="127.5" height="128"/>
         <image name="icons8-map-pin-100-zaebca" width="20" height="48"/>
